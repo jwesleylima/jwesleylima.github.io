@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base target="_blank">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My Adventurous Dino (Página oficial)</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="shortcut icon" type="image/jpg" href="images/icon.ico"/>
+</head>
+<body>
+	<header>
+		<div style="display: flex;">
+			<img src="images/icon.ico" style="width: 30px; height: 30px; margin-top: 10px; margin-right: 20px;">
+			<h1><a href="index.html" target="_self" title="Voltar para a página inicial" style="color: black;">My Adventurous Dino</a></h1>
+		</div>
+	</header>
+	<div class="download-area">
+		<img style="width: 40px; height: 40px;" src="images/direct-download.png">
+		<p>Para baixar o jogo para Windows <a href="https://mega.nz/file/EJlSERSA#uCQId2bqXwTrOzwtIVLVH29ftkBKuvetwzB6ymcMh3I">Clique aqui</a></p>
+	</div>
+	<div class="centralize">
+	<main>
+		<h1>Central de ajuda</h1>
+		<details id="permission-error">
+			<summary>
+				PermissionError ao executar o jogo
+			</summary>
+			<p>
+				Se quando você executa o jogo, aparece uma pequena janela apresentando um erro de permissão, este é seu problema.
+
+				Para resolver isso, siga os passos abaixo:
+
+				<ol>
+					<li>Desinstale o jogo</li>
+					<p>Para isso, Execute o <strong title="Executável que desinstala o jogo">Uninstall.exe</strong> que vem junto na instalação.</p>
+					<li>Execute o instalador</li>
+					<p>Quando chegar na seção de escolha do local no qual o jogo será instalado, escolha um local livre, como por exemplo: A <strong>Pasta de Documentos</strong> ou a <strong>Pasta de Downloads</strong>.</p>
+				</ol>
+			</p>
+		</details>
+		<details id="jogo-nao-entra">
+			<summary>
+				Jogo ameaça executar e mais nada
+			</summary>
+			<p>
+				Se quando você executa o jogo, parece que tudo vai correr bem, mas nada acontece, este é o seu problema.
+
+				Para resolver isso, siga os passos abaixo:
+
+				<ol>
+					<li>Reinicie o computador</li>
+					<p>É necessário que o computador seja <strong>reiniciado após a instalação</strong>, para que tudo tenha efeito.</p>
+					<li>Verifique a pasta do jogo</li>
+					<p>Isso pode parecer simples, mas se <strong>um único arquivo estiver faltando</strong>, uma exceção é levantada, <strong>impedindo a boa execução do jogo.</strong>
+					<br>
+					<br>
+					Caso tenha se certificado que <strong>há mudança nos arquivos</strong>, uma <strong>reinstalação</strong> deve resolver.</p>
+				</ol>
+			</p>
+		</details>
+		<details id="jogo-travando">
+			<summary>
+				O jogo está travando
+			</summary>
+			<p>
+				Se quando você executa o jogo, ele aparenta estar um pouco lento, a música de fundo fica oscilando, então este é o seu problema.
+
+				Para resolver isso, siga os passos abaixo:
+
+				<ol>
+					<li>Reabra o jogo</li>
+					<p>Se é <strong>a primeira que você executa o jogo</strong>, é normal ele apresentar certa lentidão. Para resolver isso, simplesmente <strong>feche o jogo e abrá-o novamente</strong>.</p>
+					<li>Feche programas pesados</li>
+					<p>Programas potencialmente pesados podem sim, afetar o desempenho do jogo. Poderíamos citar, por exemplo: <strong>Google Chrome</strong>, <strong>Microsoft Edge</strong>, <strong>Editores de Vídeo</strong>, <strong>Steam</strong>,
+						<strong>Spotify</strong>,
+						<strong>YouTube Music</strong>
+						entre outros.
+					<br>
+					<br>
+					<strong>Vai depender das configurações da sua máquina</strong>, mas normalmente manter esses programas abertos durante a jogatina <strong>não é recomendado</strong>.</p>
+					<li>Reinicie o computador</li>
+					<p>Essa dica vai para <strong>quem costuma manter o computador na mesma sessão por dias</strong>. Não desligar o computador com certa frequência é <strong>uma prática não recomendada</strong>, já que <strong>isso retarda a velocidade de resposta do computador</strong>.
+						<br>
+						<br>
+					Reveja novamente há quanto você reiniciou sua máquina. Se isso foi <strong>há mais de 3 dias</strong>, <strong>você deve reiniciá-lo</strong>.</p>
+				</ol>
+			</p>
+		</details>
+		<details id="ainda-tenho-problemas">
+			<summary>Ainda tenho problemas</summary>
+			<p>Se mesmo depois das dicas acima, seu ainda jogo não executa corretamente, por favor, siga os passos abaixo para que você possa identificar e reportar o erro:
+			
+			<ol>
+				<li>Execute o Prompt de Comando ou PowerShell</li>
+				<p>Com o cursor sobre a bandeira do Windows (A qual você clica para acessar o menu iniciar), clique com o botão direito e escolha <strong>"Prompt de Comando"</strong> ou <strong>"PowerShell"</strong>.
+					<br>
+					<br>
+				<li>Executar comandos</li>
+				<p>Depois de aberto, digite os seguintes comandos que ajudarão a identificar o erro:</p>
+				<ol>
+					<li>cd "{local-onde-o-jogo-esta}"</li>
+					<p>Você digitará este primeiro comando para adentrar na pasta onde o jogo foi instalado. Para que tudo ocorra bem, substitua o <strong>{local-onde-o-jogo-esta}</strong> pelo local onde você instalou o jogo ou onde ele está atualmente.<br><br>
+						Por exemplo: <strong>cd "C:\Users\myname\Documents\Jogos"</strong></p>
+					<li>MyAdventurousDino.exe</li>
+					<p>Agora, já dentro da pasta na qual o jogo foi instalado, digite o comando acima. Isso vai executar o jogo e mostrar caso ocorra algum erro.</p>
+				</ol>
+			</p>
+			</ol>
+			</p>
+		</details>
+	</main>
+	</div>
+	<footer>
+		Copyright &copy; 2021 <a href="https://github.com/jwesleylima" title="Siga o desenvolvedor do jogo">José Wesley de Lima Silva</a>. <br>Todos os direitos reservados.
+	</footer>
+</body>
+</html>
