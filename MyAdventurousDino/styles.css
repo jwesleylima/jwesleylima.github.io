@@ -56,7 +56,7 @@ header {
 	box-shadow: 1px 1px 10px lightgray;
 }
 
-main, div.download-area {
+main, div.download-area, div.simple-card {
 	background: white;
 	margin: 15px auto;
 	padding: 10px 20px;
@@ -95,6 +95,24 @@ img.gameplay-image {
 	border: 1px solid gray;
 	width: 300px;
 	border-radius: 5px;
+	image-rendering: pixelated;
+}
+
+.redes-sociais {
+	display: flex;
+	justify-content: left;
+}
+
+.icon-text {
+	display: flex;
+	justify-content: left;
+	line-height: 35px;
+}
+
+.icon-text > a {
+	display: flex;
+	margin-left: 20px;
+	font-size: 1.3em;
 }
 
 img.gameplay-image-left {
@@ -102,6 +120,11 @@ img.gameplay-image-left {
 	border: 1px solid gray;
 	width: 300px;
 	border-radius: 5px;
+}
+
+img.small {
+	width: 35px;
+	height: 35px;
 }
 
 div.flexed {
@@ -117,8 +140,20 @@ div.group-with-image-left p, h1, h2, h3, h4, h5, h6 {
 	margin-left: 20px;
 }
 
+div.icon-text-margin {
+	margin-left: 20px;
+}
+
 div.centralize {
 	margin: 0px 15px;
+}
+
+li {
+	font-size: 1.2em;
+}
+
+li.lista-seria {
+	color: #222;
 }
 
 footer {
@@ -169,6 +204,19 @@ footer {
 		font-size: 1.1em;
 		line-height: 40px;
 	}
+
+	img.small {
+		width: 30px;
+		height: 30px;
+	}
+
+	.icon-text {
+		line-height: 30px;
+	}
+
+	.icon-text > a {
+		font-size: 1.2em;
+	}
 }
 
 @media (max-width: 412px) {
@@ -178,5 +226,58 @@ footer {
 
 	footer {
 		font-size: .9em;
+	}
+
+	img.small {
+		width: 25px;
+		height: 25px;
+	}
+
+	.icon-text {
+		line-height: 25px;
+	}
+
+	.icon-text > a {
+		font-size: 1.1em;
+	}
+
+	li {
+		font-size: 1em;
+	}
+}
+
+@media (max-width: 375px) {
+	main h1 {
+		font-size: 1.2em;
+	}
+
+	footer {
+		font-size: .85em;
+	}
+
+	.redes-sociais {
+		display: block;
+	}
+
+	img.small {
+		width: 35px;
+		height: 35px;
+	}
+
+	.icon-text {
+		line-height: 35px;
+	}
+
+	.icon-text > a {
+		font-size: 1.2em;
+	}
+
+	li {
+		font-size: .9em;
+	}
+
+	div.icon-text-margin {
+		margin-top: 10px;
+		margin-left: 0px;
 	}
 }
