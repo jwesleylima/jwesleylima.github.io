@@ -21,10 +21,10 @@ body {
 /* Header */
 header {
 	background: white;
-	padding: 5px 10px;
+	padding: 5px 8px;
 	display: flex;
-	max-height: 40px;
-	line-height: 40px;
+	max-height: 45px;
+	line-height: 45px;
 	position: fixed;
 	z-index: 1000;
 	top: 0px;
@@ -46,6 +46,17 @@ div.toolbar-title-area {
 img.toolbar-icon {
 	max-width: 40px;
 	max-height: 40px;
+}
+main {
+	margin-top: 50px;
+	padding: 12px;
+}
+main > p {
+	font-size: 1.4em;
+	font-weight: normal;
+	color: darkgray;
+	margin-top: 200px;
+	text-align: center;
 }
 /* Produto destaque */
 article.cartao-produto-destaque {
@@ -148,12 +159,13 @@ footer {
 	bottom: 0;
 	overflow: hidden;
 	width: 100%;
+	font-size: .95em;
 	z-index: 1000;
 	display: grid;
 	grid-template-columns: .7fr 1.2fr 1fr;
 	grid-column-gap: 5px;
 	border-top: 1px solid gray;
-	padding: 12px;
+	padding: 7px 12px;
 }
 .aba-barra-inferior {
 	text-align: center;
