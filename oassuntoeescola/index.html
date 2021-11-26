@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>O Assunto é Escola | O seu portal de notícias sobre escola</title>
+	<link rel="stylesheet" type="text/css" href="styles/global.css">
+	<style type="text/css">
+		dialog {
+			position: fixed;
+			left: 20%;
+			top: 70%;
+			width: 60%;
+			opacity: 100%;
+			padding: 12px;
+			border: 2px solid var(--cor-primaria-variante-escura);
+			border-radius: var(--cartao-raio-borda);
+			animation-name: dialog-up;
+			animation-delay: 1s;
+			animation-duration: 1s;
+		}
+		dialog p {
+			font-size: 1.2em;
+		}
+		dialog h2 {
+			margin: 0px;
+			margin-bottom: 12px;
+		}
+		dialog button {
+			background: var(--cor-primaria-variante-clara);
+			border: 2px solid var(--cor-primaria-variante-escura);
+			padding: 5px;
+			font-size: 1.1em;
+			outline: none;
+			border-radius: var(--cartao-raio-borda);
+			cursor: pointer;
+		}
+		dialog a {
+			color: var(--cor-primaria);
+		}
+		dialog a:hover {
+			color: var(--cor-primaria-variante-escura);
+		}
+
+		@keyframes dialog-up {
+			0% {
+				top: 100%;
+				opacity: 0%;
+			},
+			100% {
+				top: 70%;
+				opacity: 100%;
+			}
+		}
+	</style>
+</head>
+<!-- Written by José Wesley de Lima Silva (JWesleyLima)
+	Copyright (c) 2021 JWesleyLima. All rights reserved. -->
+<body onload="carregarNoticias()">
+	<header>
+		<h1>O Assunto é Escola</h1>
+		<div class="links-navegacao-topbar">
+			<div class="link-icone link-icone-topbar">
+				<svg style="width:34px;height:34px;" viewBox="0 0 24 24">
+				    <path fill="white" d="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z" />
+				</svg>
+				<a href="./quem-somos.html">Quem somos</a>
+			</div>
+			<div class="link-icone link-icone-topbar" style="margin-left: 20px;">
+				<svg style="width:34px;height:34px" viewBox="0 0 24 24">
+				    <path fill="white" d="M14,17H7V15H14M17,13H7V11H17M17,9H7V7H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
+				</svg>
+				<a href="./termos-de-servico.html">Termos</a>
+			</div>
+			<div class="link-icone link-icone-topbar" style="margin-left: 20px;">
+				<svg style="width:34px;height:34px" viewBox="0 0 24 24">
+				    <path fill="white" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+				</svg>
+				<a href="./pesquisar.html">Pesquisar</a>
+			</div>
+		</div>
+	</header>
+	<section id="conteudo">
+		<main>
+			<!-- Notícias -->
+			<div class="cartao-noticia-dupla">
+				<a class="noticia-link" href="#">
+					<article class="cartao cartao-noticia cartao-noticia-destaque1">
+						<span class="chapeu-cartao-noticia" style="position:relative;">Joatan releva tudo</span>
+						<div class="noticia-conteudo">
+							<h3>Joatan revela já ter ficado com Arthur Felipe antes de seu relacionamento com João Vitor!</h3>
+						</div>
+					</article>
+				</a>
+				<a class="noticia-link" href="#">
+					<article class="cartao cartao-noticia cartao-noticia-destaque2" style="margin-left: 10px;">
+						<span class="chapeu-cartao-noticia" style="position:relative;">Novo casal das interwebs</span>
+						<div class="noticia-conteudo">
+							<h3>É oficial! João Vitor e Arthur Felipe admitem relacionamento para os fãs</h3>
+						</div>
+					</article>
+				</a>
+			</div>
+			<section id="noticias-normais">
+				<div style="width: 100%;">
+					<h2>Últimas notícias</h2>
+					<section id="ultimas-noticias">
+						<div id="ultimas-noticias-div">
+							<!-- NOTÍCIAS SERÃO ADICIONADAS VIA SCRIPT -->
+							<p>Carregando as notícias...</p>
+						</div>
+					</section>
+				</div>
+				<div style="margin-left: 30px;">
+					<h2>Recomendadas</h2>
+					<section id="noticias-recomendadas">
+						<p>Carregando as notícias...</p>
+					</section>
+				</div>
+			</section>
+		</main>
+	</section>
+	<footer>
+		<small>Nós não apuramos as notícias presentes neste site, visto que é um projeto acadêmico. Portanto não compartilhe notícias que venha a ver neste site.</small><br><br>
+		<p>Copyright &copy; 2021 Grupo O Assunto é Escola. Todos os direitos reservados.</p>
+		<p>Código-fonte: Copyright &copy; 2021 <a href="https://github.com/jwesleylima">JWesleyLima</a>. Todos os direitos reservados.</p>
+	</footer>
+	<dialog id="dialogoAvisoTermos" open>
+		<h2 style="font-family: var(--fonte-segundaria);">Termos de Serviço</h2>
+		<p>Ao continuar e consumir o conteúdo deste site, você está sujeito ao nossos <a href="./termos-de-servico.html">Termos de Serviço</a>.</p>
+		<br>
+		<button onclick="fecharDialogo()">Fechar</button>
+	</dialog>
+	<script type="text/javascript" src="scripts/pagina-principal.js"></script>
+	<script type="text/javascript">
+		var dialogAviso = document.querySelector('#dialogoAvisoTermos')
+
+		function fecharDialogo() {
+			dialogAviso.open = false
+		}
+	</script>
+</body>
+</html>
