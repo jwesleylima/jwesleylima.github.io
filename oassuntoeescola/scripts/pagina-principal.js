@@ -1,8 +1,8 @@
-var ultimasNoticias = [
+ultimasNoticias = [
 	{
-		'chapeu': 'O cara é brabo',
-		'titulo': 'Wesley Silva, desenvolvedor front-end gostosão cria site de notícias',
-		'link-imagem': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.SEKYF-3Xc_I4EettaGHR_gHaEK%26pid%3DApi&f=1',
+		'chapeu': 'Tecnologia',
+		'titulo': 'Seguir carreira nas áreas de desenvolvimento de software vale a pena? Veja quanto ganha um programador',
+		'link-imagem': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.-WxgyUiI3sLa0_L45xa5XwHaE7%26pid%3DApi&f=1',
 		'link-noticia': 'https://github.com/jwesleylima'
 	},
 	{
@@ -25,7 +25,7 @@ var ultimasNoticias = [
 	}
 ]
 
-var noticiasRecomendadas = [
+noticiasRecomendadas = [
 	{
 		'chapeu': 'Você é inteligente?',
 		'titulo': 'Descubra quais são os requisitos para ser considerado inteligente',
@@ -36,6 +36,18 @@ var noticiasRecomendadas = [
 		'chapeu': 'Questão polêmica',
 		'titulo': 'Qual a disciplina mais difícil: Matemática ou Física?',
 		'link-imagem': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.r_FYNs9vOwALJ1zRwlo1wgHaEo%26pid%3DApi&f=1',
+		'link-noticia': 'https://github.com/jwesleylima'
+	},
+	{
+		'chapeu': 'Assunto do momento',
+		'titulo': 'Turma da Bagunça se torna a séria de quadrinhos mais vendida do mundo',
+		'link-imagem': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.OigiUuT29otSXII-Pp23qwHaEK%26pid%3DApi&f=1',
+		'link-noticia': 'https://github.com/jwesleylima'
+	},
+	{
+		'chapeu': 'Dicas incríveis',
+		'titulo': 'Descubra como melhorar seus trabalhos e apresentações',
+		'link-imagem': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.1P44GKKp_8WmlwuO_nClAAHaEV%26pid%3DApi&f=1',
 		'link-noticia': 'https://github.com/jwesleylima'
 	}
 ]
