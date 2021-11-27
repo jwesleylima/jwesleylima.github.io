@@ -1,14 +1,14 @@
 ultimasNoticias = [
 	{
+		'chapeu': 'Agilize seus estudos',
+		'titulo': 'Novo programa para auxiliar nos estudos de equação do segundo grau é lançado',
+		'link-imagem': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Qm_G9rw_MnA_iuGvWXFC1gHaDx%26pid%3DApi&f=1',
+		'link-noticia': './noticias/novo-programa-para-auxiliar-nos-estudos-equacao-2-grau-lancado/index.html'
+	},
+	{
 		'chapeu': 'Tecnologia',
 		'titulo': 'Seguir carreira nas áreas de desenvolvimento de software vale a pena? Veja quanto ganha um programador',
 		'link-imagem': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.-WxgyUiI3sLa0_L45xa5XwHaE7%26pid%3DApi&f=1',
-		'link-noticia': 'https://github.com/jwesleylima'
-	},
-	{
-		'chapeu': 'Agilize seus estudos',
-		'titulo': 'Novo programa para auxiliar nos estudos de equação do segundo grau é lançado',
-		'link-imagem': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.8swOEGXtiOfX7AHIuZ6S3AHaE6%26pid%3DApi&f=1',
 		'link-noticia': 'https://github.com/jwesleylima'
 	},
 	{

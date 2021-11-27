@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>O Assunto é Escola | Novo programa para auxiliar nos estudos de equação do segundo grau é lançada</title>
+	<link rel="stylesheet" type="text/css" href="../../styles/global.css">
+	<style type="text/css">
+		#conteudo-noticia h1 {
+			max-width: 90%;
+			font-size: 2.3em;
+			font-family: var(--fonte-segundaria);
+		}
+
+		#conteudo-noticia h2 {
+			color: black;
+			font-family: var(--fonte-segundaria);
+		}
+
+		#conteudo-noticia p.p-normal {
+			font-size: 1.2em;
+			color: #222;
+		}
+
+		#conteudo-noticia img.imagem-noticia-normal {
+			margin: auto;
+			width: 100%;
+			height: 20%;
+			margin-bottom: 20px;
+			animation-name: animacao-tamanho;
+			animation-duration: 1s;
+		}
+
+		#conteudo-noticia img.imagem-externa-noticia {
+			width: 412px;
+			height: 260px;
+			border: 1px solid black;
+		}
+
+		#conteudo-noticia img.imagem-externa-noticia-grande {
+			width: 412px;
+			height: 380px;
+			border: 1px solid black;
+		}
+
+		.sumario-noticia {
+			color: #333;
+			font-size: 1.3em;
+			margin-top: 15px;
+		}
+
+		span.referencia-chave {
+			background: lightgray;
+			padding: 0px 5px;
+			color: #555;
+		}
+
+		div#creditos-noticia {
+			margin-top: 30px;
+			border: 5px dashed lightgray;
+			padding: 12px;
+		}
+
+		div#creditos-noticia > div {
+			display: flex;
+		}
+
+		div#creditos-noticia .info-top {
+			line-height: 30px;
+			margin-top: 10px;
+			margin-left: 20px;
+		}
+
+		div#creditos-noticia a {
+			font-size: 1.4em;
+			color: black;
+			text-decoration: none;
+		}
+
+		div#creditos-noticia > p {
+			text-indent: 30px;
+			font-size: 1.1em;
+			color: #222;
+			margin-top: 20px;
+		}
+
+		img.icone-perfil {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+		}
+
+		section#noticias-normais {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		@keyframes animacao-tamanho {
+			0% {
+				width: 0%;
+			},
+			100% {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+<!-- Written by José Wesley de Lima Silva (JWesleyLima)
+	Copyright (c) 2021 JWesleyLima. All rights reserved. -->
+<body onload="carregarNoticiasRecomendadas()">
+	<header>
+		<h1><a href="../../index.html">O Assunto é Escola</a></h1>
+		<div class="links-navegacao-topbar">
+			<div class="link-icone link-icone-topbar" title="Descubra tudo sobre o grupo por trás do portal">
+				<svg style="width:34px;height:34px;" viewBox="0 0 24 24">
+				    <path fill="white" d="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z" />
+				</svg>
+				<a href="../../quem-somos.html">Quem somos</a>
+			</div>
+			<div class="link-icone link-icone-topbar" title="Termos de Serviço do site" style="margin-left: 20px;">
+				<svg style="width:34px;height:34px" viewBox="0 0 24 24">
+				    <path fill="white" d="M14,17H7V15H14M17,13H7V11H17M17,9H7V7H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
+				</svg>
+				<a href="../../termos-de-servico.html">Termos</a>
+			</div>
+			<div class="link-icone link-icone-topbar" title="Buscar notícias" style="margin-left: 20px;">
+				<svg style="width:34px;height:34px" viewBox="0 0 24 24">
+				    <path fill="white" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+				</svg>
+				<a href="../../pesquisar.html">Pesquisar</a>
+			</div>
+		</div>
+	</header>
+	<section id="conteudo">
+		<main>
+			<section id="noticias-normais">
+				<div style="width:50%;">
+					<section id="ultimas-noticias">
+						<div id="ultimas-noticias-div">
+							<div id="conteudo-noticia">
+								<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Qm_G9rw_MnA_iuGvWXFC1gHaDx%26pid%3DApi&f=1" alt="Imagem da notícia" class="imagem-noticia-normal">
+								<h1>Novo programa para auxiliar nos estudos de equação do segundo grau é lançado</h1>
+								<p class="sumario-noticia">Se você tem dificuldade em resolver equações do segundo grau ou quer resolver mais rapidamente, chegou a solução!</p>
+								<h2>O que é?</h2>
+								<p class="p-normal">É um programa para computador que tem recursos que ajudam nos estudos das propriedades da equação do segundo grau. Ele é capaz, tanto de resolver a equação em um clique, quanto mostrar todo o cálculo passo à passo. O projeto foi desenvolvido para fins acadêmicos e estará disponível em breve para todos os usúarios.</p>
+								<h2>Como funciona?</h2>
+								<img class="imagem-externa-noticia" src="../../imagens/eq1.png">
+								<p style="margin-top:20px;" class="p-normal">Dê uma olhada na imagem acima. Com toda certeza você entendeu como o programa funciona apenas por olhar para sua interface. Você apenas insere o valor dos coeficientes <span class="referencia-chave">a</span>, <span class="referencia-chave">b</span>e <span class="referencia-chave">c</span> respectivamente, clica no botão para resolver e pronto!</p>
+								<p style="margin-top:20px;" class="p-normal">É importanto dizer que por ora ele é capaz de resolver as equações apenas usando a fórmula de Bhaskara (por isso é essencial informar o valor dos coeficientes). Apesar disso, ele ainda é capaz de resolver qualquer equação do segundo grau, seja completa ou incompleta.</p>
+								<h2>Resolvendo uma equação</h2>
+								<p style="margin-top:20px;" class="p-normal">Vamos supôr que queremos resolver a equação <span class="referencia-chave">-x² + 12x - 20 = 0</span>. O que faremos então, é abrir o programa e informar o valor de cada coeficiente. Em nossa equação hipotética, teríamos então os coeficientes a, b, c valendo respectivamente: <span class="referencia-chave">-1</span>, <span class="referencia-chave">12</span>, <span class="referencia-chave">-20</span>.</p>
+								<img style="margin-top:20px;" class="imagem-externa-noticia" src="../../imagens/eq2.png">
+								<p>Resultado após inserir os dados</p>
+								<p style="margin-top:20px;" class="p-normal">Ao reparármos bem, percebemos que ainda há alguns 'bugs' que precisam ser corrigidos, já que na previzualização ele nos mostra <span class="referencia-chave">-1x²</span> quando é preferível <span class="referencia-chave">-x²</span>.</p>
+								<p style="margin-top:20px;" class="p-normal">Agora, ao clicarmos no botão <span class="referencia-chave">Resolver problema</span>, podemos obter toda a solução do problema. Veja abaixo:</p>
+								<img style="margin-top:20px;" class="imagem-externa-noticia-grande" src="../../imagens/eq3.png">
+								<h2>Como posso baixar?</h2>
+								<p style="margin-top:20px;" class="p-normal">Infelizmente não há nenhuma data de lançamento confirmada, pois o projeto ainda está em desenvolvimento como mostrado nesse ártigo. Há grandes idéias que ainda serão implementadas, então podemos somente esperar um produto de qualidade.</p>
+								<div id="creditos-noticia">
+									<div>
+										<img class="icone-perfil" src="../../imagens/jwesleylima.jpg">
+										<div class="info-top">
+											<p style="color: gray;">Escrito por</p>
+											<h3><a href="https://instagram.com/jwesleylimadev">José Wesley de Lima Silva</a></h3>
+										</div>
+									</div>
+									<p>Desenvolvedor web front-end e estudante. Sou proativo, gosto de estudar e me divertir com amigos. Atualmente estou focando meus estudos em desenvolvimento de software fullstack, UI Design, UX Design e outros tipos de conhecimento que envolvam de alguma forma as boas práticas de tecnologia da informação.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+				<div style="max-width: 35%; margin-left: 30px;">
+					<h2>Leia também</h2>
+					<section id="noticias-recomendadas">
+						<p>Carregando as notícias...</p>
+					</section>
+				</div>
+			</section>
+		</main>
+	</section>
+	<script type="text/javascript" src="../../scripts/pagina-principal.js"></script>
+</body>
+</html>
