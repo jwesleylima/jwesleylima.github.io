@@ -1,0 +1,196 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+	--bgcolorlightbrown: #fff9ec;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--bgcolorlightbrown);
+	font-family: 'Cairo', Arial, sans-serif;
+}
+
+header {
+	background-color: var(--bgcolorlightbrown);
+	position: fixed;
+	display: flex;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 1000;
+	align-items: center;
+}
+header div.logo {
+	padding: 8px;
+}
+header div.logo a {
+	display: flex;
+	color: #000;
+	align-items: center;
+	text-decoration: none;
+}
+header div.logo a img {
+	width: 30px;
+}
+header div.logo a h1 {
+	margin: 0;
+	font-weight: normal;
+	font-size: 1.3em;
+	margin-left: 10px;
+}
+header button.menu-toggle {
+	background-color: transparent;
+	margin-right: 10px;
+	outline: none;
+	border: none;
+	text-align: right;
+	flex-grow: 1;
+}
+
+div.gradient {
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	left: 0px;
+	bottom: 0px;
+}
+
+section {
+	padding: 12px;
+	position: relative;
+}
+section.main {
+	background-color: #263c53;
+	background-image: url('../image/coqueiros.jpeg');
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: bottom;
+	padding-top: 40px;
+	margin-top: 60px;
+	min-height: 450px;
+}
+section.main h2 {
+	color: #fff;
+	font-size: 1.7em;
+	font-weight: normal;
+	margin: 0;
+	text-align: center;
+}
+section.main p {
+	font-size: 1.2em;
+	line-height: 30px;
+	text-align: left;
+	color: #ddd;
+}
+
+section.main div.gradient {
+	background-image: linear-gradient(180deg, #0001, #000f);
+}
+section.cards {
+	background-image: linear-gradient(180deg, #000 90%, #fff);
+}
+section.hire {
+	margin-top: 20px;
+	padding-bottom: 70px;
+}
+section.hire h2 {
+	font-size: 1.7em;
+}
+section.hire p {
+	font-size: 1.3em;
+	line-height: 30px;
+	color: #222;
+}
+section.hire h2, p {
+	margin: 0;
+}
+section.hire div {
+	text-align: center;
+	margin-top: 30px;
+}
+section.hire div button {
+	width: 300px;
+	height: 50px;
+	color: #000;
+	font-size: 1.5em;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px #0005;
+	background-color: #FFE1A1;
+}
+section.hire div span {
+	color: #555;
+	display: block;
+	font-size: 1.2em;
+}
+
+div.card {
+	width: 95%;
+	min-height: 300px;
+	box-shadow: 0px 0px 7px #0005;
+	border-radius: 5px;
+	color: #fff;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: 10px 12px 20px 12px;
+	text-align: center;
+}
+div.card div {
+	width: fit-content;
+	margin: auto;
+}
+div.card svg {
+	width: 70px;
+	height: 70px;
+}
+div.card h4 {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 0;
+}
+div.card p {
+	font-size: 1.2em;
+	line-height: 30px;
+	text-align: left;
+	color: #eee;
+}
+
+div.pool {
+	background-color: #005361;
+}
+div.food {
+	background-color: #611710;
+}
+
+footer {
+	min-height: 100px;
+	font-size: 1.1em;
+	color: #ccc;
+	padding: 5px;
+	border-top: 2px solid #807D77;
+	background-color: #403E3B;
+}
+footer nav {
+	margin: 10px 0;
+}
+footer a {
+	text-decoration: none;
+	color: #fff;
+}
+footer nav a {
+	display: block;
+	line-height: 25px;
+}
+footer nav a:hover {
+	color: #D9D2C7;
+}
+footer span.brand {
+	color: #fff;
+}
