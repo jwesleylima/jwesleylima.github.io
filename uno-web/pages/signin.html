@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Entrar na conta</title>
+	<link rel="stylesheet" type="text/css" href="../css/signin.css">
+</head>
+<body>
+	<!-- get firebase -->
+	<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+
+	<!-- get firebase instance -->
+	<script src="../js/connect-firebase.js"></script>
+
+	<!-- epic uno scripts -->
+	<script src="../js/auth/auth.js"></script>
+	<script src="../js/auth/utils.js"></script>
+
+	<section class="content">
+		<header class="center-logo">
+			<img class="logo" src="../image/logo-epic-uno-inline.png" alt="Logo Epic UNO">
+		</header>
+		<div class="login-area animated">
+			<h2>Entrar na conta</h2>
+			<form epicUnoForm>
+				<input type="email" placeholder="Endereço de e-mail" required>
+				<input type="password" placeholder="Senha (mínimo 6 caracteres)" required minlength="6">
+				<button class="btn-submit" type="submit">Entrar</button>
+			</form>
+		</div>
+		<div class="links-bar">
+			<a href="./signup.html">Crie uma conta</a>
+			<a href="#">Esqueci minha senha</a>
+		</div>
+	</section>
+	<script type="text/javascript">
+		const form = document.querySelector('[epicUnoForm]')
+		form.onsubmit = e => {
+			e.preventDefault()
+			let email = document.querySelector('input[type=email]').value
+			let password = document.querySelector('input[type=password').value
+			loginApi.loginUser(email, password)
+				.then(() => {
+					window.alert('Logado com sucesso')
+					window.location = '../index.html'
+				}).catch(err => {
+					window.alert('Não foi possível fazer login. ' + err.errMsg)
+				})
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Epic UNO - Divirta-se com amigos online</title>
+	<link rel="icon" type="image/x-icon" href="/image/logo-epic-uno-inline.png">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<!-- get firebase -->
+	<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+
+	<!-- get firebase instance -->
+	<script src="js/connect-firebase.js"></script>
+
+	<!-- epic uno scripts -->
+	<script src="js/player/main.js"></script>
+	<script src="js/auth/auth.js"></script>
+	<script src="js/auth/utils.js"></script>
+	<script src="js/game/utils.js"></script>
+	<script src="js/game/main.js"></script>
+
+	<section class="content">
+		<img class="logo" src="image/logo-epic-uno-inline.png" alt="Logo Epic UNO">
+		<div class="loading">
+			<div class="loading-bar"></div>
+			<span class="loading-text">Verificando conta...</span>
+		</div>
+	</section>
+
+	<script>
+		firebase.auth().onAuthStateChanged((user) => {
+			if (!user) {
+				window.location = './pages/welcome.html'
+			} else {
+				window.location = './pages/profile.html'
+			}
+		})
+	</script>
+</body>
+</html>

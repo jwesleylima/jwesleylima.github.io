@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Criar nova conta</title>
+	<link rel="stylesheet" type="text/css" href="../css/signin.css">
+</head>
+<body>
+	<!-- get firebase -->
+	<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+
+	<!-- get firebase instance -->
+	<script src="../js/connect-firebase.js"></script>
+
+	<!-- epic uno scripts -->
+	<script src="../js/auth/auth.js"></script>
+	<script src="../js/auth/utils.js"></script>
+	<script src="../js/game/utils.js"></script>
+	<script src="../js/game/main.js"></script>
+
+	<section class="content">
+		<header class="center-logo">
+			<img class="logo" src="../image/logo-epic-uno-inline.png" alt="Logo Epic UNO">
+		</header>
+		<div class="login-area animated">
+			<h2>Criar nova conta</h2>
+			<form epicUnoForm>
+				<input type="text" placeholder="Nome de usuário" minlength="6" maxlength="30" required>
+				<input type="email" placeholder="Endereço de e-mail" required>
+				<input type="password" placeholder="Senha (mínimo 6 caracteres)" required minlength="6">
+				<button class="btn-submit" type="submit">Registrar</button>
+			</form>
+		</div>
+	</section>
+	<script type="text/javascript">
+		const form = document.querySelector('[epicUnoForm]')
+		form.onsubmit = e => {
+			e.preventDefault()
+			let userName = document.querySelector('input[type=text]').value
+			let photoURL = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp8vh9I4qPrwIWLdY9JpU8ZaFTrNtlgvRKwA&usqp=CAU'
+			let email = document.querySelector('input[type=email]').value
+			let password = document.querySelector('input[type=password').value
+
+			authUtils.createNewUser(userName, photoURL, email, password)
+				.then(() => {
+					console.log('sucesso')
+				}).catch(err => {
+					window.alert('Não foi possível criar a conta. ' + err.errMsg)
+				})
+		}
+	</script>
+</body>
+</html>

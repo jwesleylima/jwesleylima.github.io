@@ -1,0 +1,118 @@
+@import "global.css";
+
+body {
+	background: linear-gradient(-45deg, #40374F, var(--background-dark), #171C13, #2B2633, var(--background-dark));
+	background-size: 500% 500%;
+	animation: gradient 15s ease infinite;
+	color: white;
+}
+
+section.content {
+	max-width: 70%;
+	text-align: center;
+	margin: auto;
+}
+
+.presentation h1 {
+	font-size: 1.8em;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.presentation p {
+	color: lightgray;
+	text-align: left;
+	line-height: 25px;
+	font-size: 1.3em;
+}
+
+.btn-play {
+	min-width: 200px;
+	min-height: 40px;
+	font-size: 1.4em;
+	border-radius: 50px;
+	border: none;
+	outline: none;
+	margin: 26px 12px 12px 12px;
+	padding: 5px;
+	cursor: pointer;
+	transition: transform .2s ease-in-out;
+	background: linear-gradient(90deg, var(--red-logo), var(--yellow-logo));
+}
+
+.btn-play:hover {
+	transform: translateY(-10px);
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@media (max-width: 780px) {
+	.presentation p {
+		font-size: 1.25em;
+	}
+}
+
+@media (max-width: 680px) {
+	.presentation h1 {
+		font-size: 1.65em;
+	}
+	.presentation p {
+		font-size: 1.2em;
+	}
+	section.content {
+		max-width: 75%;
+	}
+}
+
+@media (max-width: 620px) {
+	.presentation h1 {
+		font-size: 1.6em;
+	}
+	.presentation p {
+		font-size: 1.2em;
+	}
+	section.content {
+		max-width: 80%;
+	}
+}
+
+@media (max-width: 580px) {
+	.presentation h1 {
+		font-size: 1.4em;
+	}
+	section.content {
+		max-width: 85%;
+	}
+	.btn-play {
+		min-width: 190px;
+		font-size: 1.3em;
+		padding: 3px;
+	}
+}
+
+@media (max-width: 430px) {
+	.presentation h1 {
+		font-size: 1.3em;
+	}
+	.presentation p {
+		font-size: 1.1em;
+	}
+	section.content {
+		max-width: 90%;
+	}
+	.btn-play {
+		min-width: 180px;
+		font-size: 1.2em;
+		padding: 0px;
+	}
+}

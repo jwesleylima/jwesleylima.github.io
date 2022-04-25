@@ -1,0 +1,21 @@
+@import "global.css";
+
+body {
+	background: linear-gradient(56deg, var(--background-dark), var(--yellow-extradark));
+}
+
+@media (max-height: 450px) and (orientation: landscape) {
+	header {
+		display: none;
+	}
+	div.login-area {
+		margin: 0;
+	}
+	section.content {
+		display: flex;
+		height: 99%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
