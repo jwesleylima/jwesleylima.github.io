@@ -38,18 +38,18 @@
 		if (hash == "#pages/menu.html") {
 			const link = document.querySelector("a.topbar-menu-link")
 			const icon = document.querySelector(".topbar-menu-icon")
-			link.href = "https://jwesleylima.github.io/WensinhoSite/#pages/browse.html"
+			link.href = "#pages/browse.html"
 			icon.classList.toggle("fa-bars")
 			icon.classList.toggle("fa-xmark")
-			link.setAttribute("app-navigate", "https://jwesleylima.github.io/WensinhoSite/#pages/browse.html")
+			link.setAttribute("app-navigate", "#pages/browse.html")
 
 		} else if (hash == "#pages/browse.html") {
 			const icon = document.querySelector(".topbar-menu-icon")
 			const link = document.querySelector("a.topbar-menu-link")
 			icon.classList.toggle("fa-bars")
 			icon.classList.toggle("fa-xmark")
-			link.href = "https://jwesleylima.github.io/WensinhoSite/#pages/menu.html"
-			link.setAttribute("app-navigate", "https://jwesleylima.github.io/WensinhoSite/#pages/menu.html")
+			link.href = "#pages/menu.html"
+			link.setAttribute("app-navigate", "#pages/menu.html")
 		}
 	}
 
