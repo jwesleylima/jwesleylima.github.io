@@ -1,12 +1,14 @@
 (function(){
 	function navigateAjax(hash) {
-		console.log("navigate AJAX CALLED")
+		console.log("navigate AJAX CALLED (HASH=", hash, ") URL=", "https://jwesleylima.github.io/WensinhoSite/" + hash.substring(1))
 
-		if (!hash) return
+		if (!hash) {console.log("-> NO HASH!!"); return}
 		const link = document.querySelector(`[app-navigate="${hash}"]`)
-		if (!link) return
+		if (!link) {console.log("-> NO LINK FOUND!! ", `[app-navigate="${hash}"]`); return}
 
+		console.log('Loading destiny... [app-pages-destiny]')
 		const destiny = document.querySelector('[app-pages-destiny]')
+		console.log('-> SUCCESS: getting URL')
 		const url = "https://jwesleylima.github.io/WensinhoSite/" + hash.substring(1)
 
 		console.log(`Loading page in HASH=${hash} from URL=${url}`)
@@ -25,9 +27,10 @@
 						showSearchDialog()
 					})
 				}
-			})
 
-		checkHash(hash)
+				checkHash(hash)
+
+			})
 	}
 
 	function checkHash(hash) {
