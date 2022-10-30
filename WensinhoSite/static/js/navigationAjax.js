@@ -6,7 +6,7 @@
 		if (!link) return
 
 		const destiny = document.querySelector('[app-pages-destiny]')
-		const url = hash.substring(1)
+		const url = "WensinhoSite/" + hash.substring(1)
 
 		fetch(url)
 			.then(resp => resp.text())
