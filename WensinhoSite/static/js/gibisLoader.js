@@ -1,4 +1,5 @@
 function loadGibis(browsePage) {
+	console.log('gibisLoader.js loadGibis CALLED')
 	const topicsArticles = function() {
 		const objTopics = {}
 		browsePage.querySelectorAll("article.gibis-list-horizontal")
@@ -21,6 +22,7 @@ function loadGibis(browsePage) {
 }
 
 function loadGibisToElement(gibis, element) {
+	console.log('gibisLoader.js loadGibisToElement CALLED')
 	element.innerHTML = ''
 	gibis.forEach(gibiData => {
 		const id = gibiData[0]
@@ -44,6 +46,7 @@ function loadGibisToElement(gibis, element) {
 	</div>
 */
 function loadGibisSearchToElement(gibis, element) {
+	console.log('gibisLoader.js loadGibisSearchToElement CALLED')
 	element.innerHTML = ''
 	gibis.forEach(gibiData => {
 		const id = gibiData[0]

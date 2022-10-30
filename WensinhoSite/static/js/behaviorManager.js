@@ -15,6 +15,7 @@ const foundItemsSearchCont = document.querySelector("#found-items")
 const searchField = document.querySelector("#input-search");
 
 (function(){
+	console.log('behaviorManager.js SETTING SEARCH FIELD')
 	searchField.addEventListener('input', function() {
 		searchAndUpdateFoundItems(this.value)
 	})

@@ -1,5 +1,6 @@
 (function(){
 	function navigateAjax(hash) {
+		console.log("navigate AJAX CALLED")
 
 		if (!hash) return
 		const link = document.querySelector(`[app-navigate="${hash}"]`)
@@ -30,6 +31,7 @@
 	}
 
 	function checkHash(hash) {
+		console.log('checkHash')
 		if (hash == "#pages/menu.html") {
 			const link = document.querySelector("a.topbar-menu-link")
 			const icon = document.querySelector(".topbar-menu-icon")
@@ -49,6 +51,7 @@
 	}
 
 	function setUpLinks() {
+		console.log("setUpLinks")
         document.querySelectorAll('[app-navigate]')
             .forEach(link => {
                 link.href = link.attributes['app-navigate'].value
@@ -56,6 +59,7 @@
     }
 
     function initialNavigation() {
+    	console.log("initialNavigation")
         if (location.hash) {
             navigateAjax(location.hash)
         } else {
@@ -68,4 +72,6 @@
     
     setUpLinks()
     initialNavigation()
+
+    console.log(`NavigationAjax CONFIGURED`)
 })()
