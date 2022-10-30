@@ -6,18 +6,20 @@
 		if (!link) return
 
 		const destiny = document.querySelector('[app-pages-destiny]')
-		const url = "WensinhoSite/" + hash.substring(1)
+		const url = "https://jwesleylima.github.io/WensinhoSite/" + hash.substring(1)
+
+		console.log(`Loading page in HASH=${hash} from URL=${url}`)
 
 		fetch(url)
 			.then(resp => resp.text())
 			.then(html => {
 				destiny.innerHTML = html
 
-				if (hash == "https://jwesleylima.github.io/WensinhoSite/#pages/browse.html") {
+				if (hash == "#pages/browse.html") {
 					loadGibis(destiny)
 					addClickListenersToSeeMore(destiny)
 					addClickListenersToGibiItems(destiny.querySelectorAll(".gibi-item"))
-				} else if (hash == "https://jwesleylima.github.io/WensinhoSite/#pages/menu.html") {
+				} else if (hash == "#pages/menu.html") {
 					destiny.querySelector("#procurar").addEventListener('click', event => {
 						showSearchDialog()
 					})
@@ -28,7 +30,7 @@
 	}
 
 	function checkHash(hash) {
-		if (hash == "https://jwesleylima.github.io/WensinhoSite/#pages/menu.html") {
+		if (hash == "#pages/menu.html") {
 			const link = document.querySelector("a.topbar-menu-link")
 			const icon = document.querySelector(".topbar-menu-icon")
 			link.href = "https://jwesleylima.github.io/WensinhoSite/#pages/browse.html"
@@ -36,7 +38,7 @@
 			icon.classList.toggle("fa-xmark")
 			link.setAttribute("app-navigate", "https://jwesleylima.github.io/WensinhoSite/#pages/browse.html")
 
-		} else if (hash == "https://jwesleylima.github.io/WensinhoSite/#pages/browse.html") {
+		} else if (hash == "#pages/browse.html") {
 			const icon = document.querySelector(".topbar-menu-icon")
 			const link = document.querySelector("a.topbar-menu-link")
 			icon.classList.toggle("fa-bars")

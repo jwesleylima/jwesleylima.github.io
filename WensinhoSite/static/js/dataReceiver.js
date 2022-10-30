@@ -131,6 +131,6 @@ const DATA = {
 		topic: "lancamento",
 		subtitle: "Longe de casa",
 		synopsis: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium aliquid fugiat molestiae, dolorem fuga, veritatis, totam cumque quisquam earum suscipit assumenda aliquam laboriosam, debitis at? Eum animi tempore minima ab!Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium aliquid fugiat molestiae, dolorem fuga, veritatis, totam cumque quisquam earum suscipit assumenda aliquam laboriosam, debitis at? Eum animi tempore minima ab!"
-	},
+	}
 
 }
