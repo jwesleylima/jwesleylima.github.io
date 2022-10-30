@@ -1,0 +1,80 @@
+:root {
+	--color-red: #de5757;
+	--color-blue: #24a5ba;
+	--color-green: #23ba37;
+	--color-yellow: #bab223;
+}
+
+body {
+	background: #151721;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+main.menu {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+	column-gap: 5px;
+}
+
+main.menu a {
+	display: block;
+	font-size: 1.3em;
+	color: white;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 15px;
+	min-height: 35px;
+	margin-bottom: 2px;
+	animation: animacao 1s;
+	transition: background .3s ease-in-out;
+}
+
+main.menu a.yellow {
+	color: var(--color-yellow);
+}
+
+main.menu a.blue {
+	color: var(--color-blue);
+}
+
+main.menu a.red {
+	color: var(--color-red);
+}
+
+main.menu a.green {
+	color: var(--color-green);
+}
+
+main.menu span {
+	margin-left: 5px;
+}
+
+main.menu a.yellow:focus {
+	background: var(--color-yellow);
+	color: white;
+}
+
+main.menu a.blue:focus {
+	background: var(--color-blue);
+	color: white;
+}
+
+main.menu a.red:focus {
+	background: var(--color-red);
+	color: white;
+}
+
+main.menu a.green:focus {
+	background: var(--color-green);
+	color: white;
+}
+
+@keyframes animacao {
+	0% {
+		transform: translateY(-50px);
+	}
+}

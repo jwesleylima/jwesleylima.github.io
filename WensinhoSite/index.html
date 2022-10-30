@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>W3nsinh0 Cartoons - Página Oficial</title>
+	<link rel="stylesheet" type="text/css" href="static/css/elements.css">
+	<link rel="stylesheet" type="text/css" href="static/css/general.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<div class="topbar red">
+		<a class="topbar-menu-link" href="#/pages/menu.html" app-navigate="#/pages/menu.html">
+			<i class="topbar-menu-icon fa-solid fa-xmark"></i>
+		</a>
+		<span class="topbar-title">W3nsinh0 Cartoons</span>
+	</div>
+
+	<a href="#/pages/browse.html" app-default-page app-navigate="#/pages/browse.html"></a>
+	<div app-pages-destiny class="margin-topbar-90"></div>
+
+	<dialog id="search-dialog" class="dialog-search">
+		<div class="topbar green">
+			<a class="topbar-menu-link" href="javascript:closeSearchDialog()">
+				<i class="topbar-menu-icon fa-solid fa-xmark"></i>
+			</a>
+			<span class="topbar-title">Procurar um Gibi</span>
+		</div>
+		<div class="search-element-container margin-topbar-75">
+			<input class="input-search" id="input-search" type="text" placeholder="PROCURAR">
+			<div class="found-items" id="found-items"></div>
+		</div>
+	</dialog>
+
+	<dialog id="see-more-dialog" class="dialog-see-more">
+		<div class="topbar green">
+			<a class="topbar-menu-link" href="javascript:closeSeeMoreDialog()">
+				<i class="topbar-menu-icon fa-solid fa-xmark"></i>
+			</a>
+			<span class="topbar-title">Ver tudo</span>
+		</div>
+		<div class="gibis-grid margin-topbar-75"></div>
+	</dialog>
+
+	<dialog id="details-dialog" class="dialog-gibi-details">
+		<div class="topbar green">
+			<a class="topbar-menu-link" href="javascript:closeDetailsDialog()">
+				<i class="topbar-menu-icon fa-solid fa-xmark"></i>
+			</a>
+			<span class="topbar-title">Detalhes</span>
+		</div>
+		<div class="gibi-info-panel margin-topbar-60">
+			<div class="gibi-image"></div>
+			<div class="gibi-info">
+				<h1 class="title">Chico bento</h1>
+				<p class="subtitle">AVE LIVRE CANTA MAIS BONITO</p>
+				<button class="common-button">LER</button>
+			</div>
+		</div>
+		<p class="gibi-synopsis">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</dialog>
+	
+
+	<script src="static/js/dataReceiver.js"></script>
+	<script src="static/js/gibisLoader.js"></script>
+	<script src="static/js/behaviorManager.js"></script>
+	<script src="static/js/navigationAjax.js"></script>
+</body>
+</html>

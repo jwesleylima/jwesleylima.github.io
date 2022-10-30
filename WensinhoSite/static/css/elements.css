@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+:root {
+	--topbar-height: 30px;
+	--topbar-common-color: #e23131;
+	--topbar-green-color: #319637;
+	--topbar-blue-color: blue;
+	--common-padding: 30px;
+	--color-red: #de5757;
+	--color-blue: #24a5ba;
+	--color-green: #23ba37;
+	--color-yellow: #bab223;
+	--color-purple: #3c1445;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.topbar {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: var(--topbar-height);
+	padding: var(--common-padding);
+	background: var(--topbar-common-color);
+}
+
+.topbar.red {
+	background: var(--topbar-common-color);
+}
+
+.topbar.green {
+	background: var(--topbar-green-color);
+}
+
+.topbar-title {
+	text-transform: uppercase;
+	color: white;
+	font-size: 1.2em;
+	align-self: center;
+}
+
+.topbar-menu-link {
+	color: white;
+	font-size: 25px;
+	margin-left: 30px;
+}
+
+.topic-bar {
+	min-height: 30px;
+	background: var(--topbar-common-color);
+	color: white;
+	font-size: 1.3em;
+	text-transform: uppercase;
+	display: flex;
+	padding: 0px 10px 0px 10px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.topic-bar.red {
+	background: var(--topbar-common-color);
+}
+
+.topic-bar.purple {
+	background: var(--color-purple);
+}
+
+.topic-bar.yellow {
+	background: #e5b720;
+}
+
+.gibi-item {
+	display: inline-block;
+	width: 96px;
+	height: 136px;
+	background-color: gray;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 6px;
+	margin-left: 12px;
+}
+
+.gibi-info-panel {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px;
+}
+
+.gibi-image {
+	min-width: 165px;
+	height: 234px;
+	display: inline-block;
+	background-color: gray;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 6px;
+}
+
+.gibi-info {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 234px;
+	padding: 0px 15px 0px 15px;
+}
+
+.gibi-info .title {
+	color: white;
+}
+
+.gibi-info .subtitle {
+	color: lightgray;
+	flex-grow: 1;
+}
+
+.gibis-list-horizontal {
+	width: 100%;
+	overflow: auto;
+	white-space: nowrap;
+	padding: 12px 12px 12px 0px;
+}
+
+.dialog-gibi-details {
+	background: #151721;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	animation: animacao .2s ease-in-out;
+}
+
+.gibi-synopsis {
+	color: lightgray;
+	margin: 12px 20px 12px 20px;
+}
+
+.common-button {
+	background: var(--color-yellow);
+	color: white;
+	padding: 8px 13px 8px 13px;
+	border-radius: 0px;
+	outline: none;
+	border: none;
+	font-size: 1.4em;
+	transform: uppercase;
+}
+
+.dialog-see-more {
+	background: white;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	animation: animRight .2s ease-in-out;
+}
+
+
+.gibis-grid {
+	width: 100%;
+	margin: 0px 15px 15px 15px;
+	display: grid;
+	overflow: auto;
+	max-height: 87%;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-row-gap: 15px;
+}
+
+.gibis-grid .gibi-item {
+	margin: 0;
+}
+
+.search-element-container {
+	height: 85%;
+	overflow: scroll;
+}
+
+.found-items .gibi-item {
+	margin: 0;
+}
+
+.dialog-search {
+	background: white;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	animation: animRight .2s ease-in-out;
+}
+
+.gibi-item-search {
+	display: flex;
+	width: 100%;
+	margin-top: 15px;
+	min-height: 60px;
+	padding: 8px 14px 8px 14px;
+}
+
+.gibi-title-search {
+	color: black;
+	font-size: 1.3em;
+}
+
+.gibi-info-search {
+	margin-left: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.gibi-subtitle-search {
+	color: #444;
+	font-size: 1em;
+}
+
+.input-search {
+	min-width: 350px;
+	margin: 0px 12px 0px 12px;
+	padding: 12px;
+	background: white;
+	border: 2px solid black;
+	color: black;
+	font-size: 1.3em;
+	outline: none;
+	border-radius: 6px;
+}
+
+/*
+<div class="gibi-item-search">
+		<div class="gibi-item"></div>
+		<div class="gibi-info-search">
+			<h2 class="gibi-title-search">Turma da Mônica</h2>
+			<span class="gibi-synopsis-search">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum facere repellat non molestiae animi quas minima hic dolor similique autem modi distinctio, blanditiis commodi voluptatem doloremque optio exercitationem eius nulla!</span>
+		</div>
+	</div>
+*/
+
+@keyframes animacao {
+	0% {
+		transform: translateY(50px);
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
+
+@keyframes animRight {
+	0% {
+		transform: translateX(50px);
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
