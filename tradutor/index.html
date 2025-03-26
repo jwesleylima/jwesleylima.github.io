@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt_BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,135 +10,300 @@
       box-sizing: border-box;
     }
 
-    html,body {
-      height: 100%;
+    html, body {
+      height: 100vh;
     }
 
     main {
-      width: 600px;
-      max-height: 800px;
+      box-shadow: 1px 1px 4px rgba(0,0,0,.2);
+      min-height: 400px;
     }
 
     .scrollable-div {
-      height: 300px; /* Altura da div */
-      overflow: auto; /* Adiciona rolagem quando necessário */
-      padding: 10px; /* Espaçamento interno */
-    }
-
-    #output-area {
-      border: 1px solid gray;
-      border-radius: 3px;
-      padding: 5px;
-      position: relative;
-      min-height: 100px;
-    }
-
-    #output-tarea {
-      padding: 5px;
       height: 300px;
+      overflow: auto;
+      padding: 10px;
     }
 
-    #output-area > #copy-btn {
+    .hr-light {
+      border-color: #999;
+    }
+
+    .input-textarea {
+      border: none;
+      resize: none;
+      margin: 0px 1px 0px 1px;
+      border-right: 1px solid #ddd;
+      border-bottom-left-radius: 5px;
+    }
+    
+    @media (max-width: 768px) {
+      .input-textarea {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        margin: 0;
+      }
+      
+      main {
+        min-height: 600px;
+      }
+    }
+
+    .input-textarea:focus {
+      border: none;
+      outline: 1px solid var(--bs-primary);
+    }
+
+    .output-textarea {
+      outline: none;
+      border: none;
+      resize: none;
+    }
+
+    .icon-btn {
+      background-color: white;
+      transition: transform 0.1s;
+    }
+
+    .icon-btn.border {
+      border-color: #888 !important;
+    }
+
+    .icon-btn:disabled {
+      border: none;
+    }
+
+    .icon-btn:hover {
+      background-color: #eee;
+    }
+
+    .icon-btn:active {
+      background-color: #eee !important;
+      border-color: #888 !important;
+      transform: scale(1.1);
+    }
+
+    .btn-paste {
       position: absolute;
-      right: 5px;
+      right: 10px;
+      top: 10px;
+    }
+    
+    .btn-translate {
+      position: absolute;
+      right: 10px;
+      top: 54px;
     }
 
-    .ellipsis {
-      max-width: 100%; /* Largura do contêiner */
-      white-space: nowrap; /* Impede que o texto quebre em várias linhas */
-      overflow: hidden; /* Oculta o texto que excede o contêiner */
-      text-overflow: ellipsis; /* Adiciona '...' ao final do texto cortado */
+    .w100 {
+      width: 100%;
+    }
+    
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+      backdrop-filter: blur(3px); /* Aplica desfoque */
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .api-key-page {
+      min-height: 400px;
     }
   </style>
-  <title>Tradutor Automático | By: JWESLEYLIMA</title>
+  <title>Tradutor Automático V2</title>
 </head>
 <body class="bg-light">
-  <div id="app" class="row d-flex flex-column justify-content-center align-items-center">
-    <div v-if="apiKeyPage">
-      <main class="col-12 col-md-6 offset-md-3 d-flex flex-column bg-white shadow-sm p-5 mt-5">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <h1 class="display-4 m-0">Inserir Chave de API</h1>
-          <input type="text" class="form-control mt-3" v-model="apiKey" placeholder="Digite aqui...">
-          <button class="btn btn-primary mt-2" :disabled="!apiKey" @click="apiKeyPage = false"><span class="me-1">Continuar</span> <i class="fa fa-arrow-right"></i></button>
-        </div>
-      </main>
-    </div>
-    <div v-else>
-      <div v-if="errorTranslating" class="d-flex flex-column align-items-center p-2">
-        <i class="fa fa-exclamation-circle text-danger"></i>
-        <span class="text-danger text-center">{{ error }}</span>
-      </div>
-      <main class="col-12 offset-md-3 col-md-6 d-flex flex-column bg-white shadow-sm p-5 mt-5">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <h1 class="display-4 m-0">Tradutor Automático</h1>
-          <span class="text-muted mt-1 ellipsis">Sua API Key é: <span class="ellipsis" :class="{ 'text-primary': apiKey, 'text-danger': !apiKey }">{{ apiKey || 'Não definida' }}</span></span>
-        </div>
-        <textarea name="input" id="input" class="mt-4" placeholder="Digite o texto..." :disabled="isTranslating" v-model="originalText"></textarea>
-        <div class="d-flex align-items-center mt-3">
-          <label for="targetLang">Língua alvo:</label>
-          <select name="targetLang" id="targetLang" class="ms-2" v-model="targetLang" :disabled="isTranslating">
-            <option value="pt">Português do Brasil</option>
-          </select>
-        </div>
-        <h2 class="mt-3 h4">Resultado:</h2>
-        <div v-if="isTranslating || !translatedText" name="output" id="output-area" class="mt-2" disabled>
-          <div class="scrollable-div">
-            <div v-if="isTranslating" class="d-flex flex-column justify-content-center align-items-center mt-3">
-              <span class="spinner-border spinner-border-sm"></span>
-              <span class="text-muted mt-2">Traduzindo</span>
-            </div>
-            <div v-else-if="translatedText === null" class="d-flex flex-column justify-content-center align-items-center mt-3">
-              <i class="fa fa-info-circle text-secondary"></i>
-              <span class="text-muted text-center">Digite algo e clique em <span class="text-primary">Traduzir</span> para começar</span>
+  <div id="app">
+    <div v-show="!apiKeyPage" class="row">
+      <main class="d-flex flex-column bg-white rounded col-12 col-md-10 offset-1 p-0 mt-4">
+        <section class="row p-3">
+          <div class="col-5">
+            <span class="text-primary">Detectar idioma</span>
+          </div>
+          <div class="col-2 text-center">
+            <div class="bg-light p-2 rounded text-center d-inline">
+              <i class="fa fa-arrow-right text-secondary"></i>
             </div>
           </div>
-        </div>
-        <textarea v-else name="output-tarea" id="output-tarea" readonly>{{ translatedText }}</textarea>
-        <div class="d-flex justify-content-center align-items-center"></div>
-        <button id="copy-btn" class="btn btn-primary fa fa-copy mt-2" :disabled="!translatedText" @click="copyResultToClipboard"></button>
-        <button :disabled="!apiKey || originalText.length === 0 || isTranslating" @click="requestTranslate" class="btn btn-primary mt-2">Traduzir</button>
+          <div class="col-5 d-flex justify-content-between">
+            <span class="text-primary">Português (Brasil)</span>
+            <a class="btn icon-btn m-0 p-0 px-1 d-flex align-items-center" 
+              :disabled="!preferences"
+              data-tippy-content="Preferências"
+              href="#preferences">
+              <i class="fa fa-gear"></i>
+            </a>
+          </div>
+        </section>
+        <hr class="hr-light m-0">
+        <section class="col d-flex flex-column flex-md-row">
+          <div class="w100 h-100 position-relative">
+            <textarea placeholder="Escreva ou cola o texto aqui" class="w-100 h-100 input-textarea p-3" v-model="originalText"></textarea>
+            <button class="btn icon-btn btn-paste border" @click="pasteFromClipboard">
+              <i class="fa fa-paste"></i>
+              <span class="ms-2">Colar</span>
+            </button>
+            <button 
+              class="btn icon-btn btn-translate border" 
+              :disabled="originalText.length === 0 || originalText === lastOriginalText" 
+              @click="requestTranslate">
+              <i class="fa fa-language"></i>
+              <span class="ms-2">Traduzir</span>
+            </button>
+          </div>
+          <div class="w100 h-100 d-flex flex-column px-2 py-1">
+            <div v-if="errorTranslating" class="w-100 h-100 p1 d-flex flex-column text-center">
+              <span class="text-secondary fs-3 mt-2">
+                (ᴗ_ ᴗ。)
+              </span>
+              <span class="mt-2 text-secondary">
+                Erro ao traduzir! Seu acesso pode ter sido limitado ou sua chave de API pode estar inválida!
+              </span>
+            </div>
+            <div v-else-if="isTranslating" class="w-100 h-100 p1 d-flex justify-content-center align-items-start">
+              <i class="fa fa-spinner fa-spin text-secondary fs-2 mt-5"></i>
+            </div>
+            <textarea v-else class="text-secondary w-100 h-100 output-textarea p-1" readonly>{{ translatedText }}</textarea>
+            <div class="mt-1 p-2 d-flex justify-content-end">
+              <button v-if="!usingImproveTranslation"
+                class="btn icon-btn" 
+                :disabled="!translatedText || translatedText.length === 0"
+                @click="improveTranslation">
+                <i class="fa fa-wand-magic-sparkles"></i>
+                <span class="ms-2">
+                  {{ preferences.joinImproveAndCopy ? "Melhorar e copiar" : "Melhorar" }}
+                </span>
+              </button>
+              <button v-else
+                class="btn icon-btn" 
+                :disabled="!translatedText || translatedText.length === 0"
+                @click="undoImprovements">
+                <i class="fa fa-undo"></i>
+                <span class="ms-2">Desfazer melhorias</span>
+              </button>
+              <button class="btn icon-btn" 
+                :disabled="!translatedText || translatedText.length === 0"
+                @click="copyResult">
+                <i :class="`fa ${copied ? 'fa-check' : 'fa-copy' }`"></i>
+                <span class="ms-2">{{ copied ? "Copiado" : "Copiar" }}</span>
+              </button>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
-    <footer class="d-flex justify-content-center align-items-center mt-4">
-      <span class="text-muted">Desenvolvido por <a href="https://github.com/jwesleylima" target="_blank">JWesleyLima</a></span>
-    </footer>
+    <div v-show="!apiKeyPage" class="row">
+      <div id="preferences" class="p-3 col-12 col-md-10 offset-1 mt-3 bg-white rounded shadow-sm">
+        <h2 class="h1">Preferências</h2>
+        <hr>
+        <div class="d-flex justify-content-center align-items-start flex-column">
+          <div>
+            <div class="d-flex">
+              <input type="checkbox" id="check-auto-clear" v-model="preferences.autoClear" class="form-check-input">
+              <label class="form-check-label ms-1" for="check-auto-clear">Limpar automaticamente após copiar</label>
+            </div>
+            <div class="mt-2 d-flex">
+              <input type="checkbox" id="check-join-improve-copy" v-model="preferences.joinImproveAndCopy" class="form-check-input">
+              <label class="form-check-label ms-1" for="check-join-improve-copy">Unir o botão "Melhorar" com "Copiar", ficando "Melhorar e copiar"</label>
+            </div>
+            <div class="mt-2 d-flex">
+              <button class="btn icon-btn border" @click="deleteApiKeyFromMemory">
+                <i class="fa fa-trash text-secondary"></i>
+                <span class="ms-2">Remover API Key da memória</span>
+              </button>
+            </div>
+          </div>
+          <h3 class="mt-3">Lista de melhorias</h3>
+          <form class="d-flex flex-column mt-1" @submit.prevent="addImprovement">
+            <input type="text" class="form-control" v-model="improvOriginal" placeholder="Original...">
+            <input type="text" class="form-control mt-1" v-model="improvReplacement" placeholder="Substituir por...">
+            <button class="btn icon-btn border mt-1">
+              <i class="fa fa-add"></i><span class="ms-2">Adicionar</span>
+            </button>
+          </form>
+          <ul class="list-unstyled mt-3">
+            <li class="p2" v-for="(improvement, index) in preferences.improvementList" :key="index">
+              <span>{{ improvement.original }}</span>
+              <i class="fa fa-arrow-right text-secondary mx-2"></i>
+              <span>{{ improvement.replacement }}</span>
+              <button class="btn icon-btn ms-2 text-secondary" @click="removeImprovement(index)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row api-key-page" v-if="apiKeyPage" >
+      <div class="p-3 col-12 col-md-10 offset-1 mt-3 bg-white rounded shadow-sm">
+      <div v-if="isCheckingApiKey" class="w-100 h-100 p1 d-flex justify-content-center align-items-center">
+        <i class="fa fa-spinner fa-spin text-secondary fs-2"></i>
+      </div>
+      <div v-else class="d-flex flex-column align-items-center justify-content-center">
+        <h2 class="display-5 fw-lighter text-uppercase mt-2 text-primary">Inserir chave de API</h2>
+        <input type="password" v-model="apiKey" placeholder="Digite aqui..." class="form-control mt-2">
+        <button class="btn icon-btn border mt-2" 
+          :disabled="!apiKey || apiKey.length === 0"
+          @click="apiKeyPage = false">
+          <i class="fa fa-arrow-right"></i>
+          <span class="ms-2">Continuar</span>
+        </button>
+      </div>
+    </div>
+    </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
   <script>
     new Vue({
       el: '#app',
       data: {
-        apiKeyPage: true,
         apiKey: '',
-        originalText: '',
         targetLang: 'pt',
+        originalText: '',
+        lastOriginalText: '',
+        improvOriginal: '',
+        improvReplacement: '',
         translatedText: null,
-        error: '',
+        originalTranslateText: null,
+        apiKeyPage: true,
+        isCheckingApiKey: true,
         errorTranslating: false,
-        isTranslating: false
+        copied: false,
+        isTranslating: false,
+        usingImproveTranslation: false,
+        preferencesLoaded: false,
+        preferences: {
+          autoClear: false,
+          joinImproveAndCopy: false,
+          improvementList: []
+        }
       },
       computed: {
         API_URL() {
-          return `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=${this.targetLang}`
+          return `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=${this.targetLang}`;
+        },
+        toast() {
+          return Swal.mixin({
+            toast: true,
+            position: 'top',
+            showConfirmButton: false,
+            timer: 3000
+          });
         }
       },
       methods: {
-        formatLineBreaks(text) {
-          return text.replace(/\n/g, '<br>');
-        },
-        copyResultToClipboard() {
-          navigator.clipboard.writeText(this.translatedText)
-          .then(() => {
-            alert('Copiado com sucesso!')
-          })
-          .catch(err => {
-            console.error(err);
-            alert('Erroa ao copiar')
-          });
-        },
         async requestTranslate() {
           if (!this.apiKey) {
-            alert('Uma API Key deve ser fornecida');
             this.apiKeyPage = true;
             return;
           }
@@ -159,22 +324,245 @@
                 'Text': this.originalText
               }
             ])
-          })
+          });
 
           if (!response.ok) {
             this.errorTranslating = true;
-            this.error = `Erro ao traduzir! Seu acesso pode ter sido limitado ou sua chave de API pode estar inválida!`
           } else {
             const data = await response.json();
-            this.translatedText = data?.[0]?.translations?.[0]?.text;
-            console.log(this.translatedText)
+            this.translatedText = data?.[0]?.translations?.[0]?.text || null;
+            this.originalTranslateText = data?.[0]?.translations?.[0]?.text || null;
+            this.lastOriginalText = this.originalText;
           }
 
-          console.log(response)
-          this.isTranslating = false;
+          //console.debug(response);
+          this.isTranslating = false; 
+        },
+        async pasteFromClipboard() {
+          if (!navigator?.clipboard) return;
+
+          try {
+            const text = await navigator.clipboard.readText();
+            this.originalText = `${text}`;
+          } catch (error) {
+            // Mostrar toast informando erro ao colar
+            console.error(error);
+          }
+        },
+        async copyToClipboard(text) {
+          if (!navigator?.clipboard) return;
+
+          try {
+            await navigator.clipboard.writeText(text);
+            return true;
+          } catch (error) {
+            console.error(error);
+            return false;
+          }
+        },
+        addImprovement() {
+          const original = this.improvOriginal;
+          const replacement = this.improvReplacement;
+          
+          this.preferences.improvementList.push({
+            original,
+            replacement
+          });
+          
+          this.improvOriginal = '';
+          this.improvReplacement = '';
+        },
+        removeImprovement(index) {
+          this.preferences.improvementList.splice(index, 1);
+        },
+        fetchAPIKey() {
+          const apiKey = localStorage.getItem('apiKey');
+          return apiKey || null;
+        },
+        deleteApiKeyFromMemory() {
+          localStorage.removeItem('apiKey');
+          
+          this.toast.fire({
+            title: 'API Key removida da memória!',
+            icon: 'success'
+          });
+        },
+        fetchPreferences() {
+          const preferencesRaw = localStorage.getItem('preferences');
+          if (!preferencesRaw) {
+            return;
+          }
+          
+          try {
+            const prefs = JSON.parse(preferencesRaw);
+            Object.entries(prefs).forEach(([key, value]) => {
+              this.preferences[key] = value;
+            })
+          } catch (error) {
+            this.toast.fire({
+              title: 'Ocorreu um erro ao carregar suas preferências!',
+              icon: 'error'
+            });
+            console.error(error);
+          }
+        },
+        fetchImprovements() {
+          const improvementsRaw = localStorage.getItem('improvements');
+          if (!improvementsRaw) {
+            return;
+          }
+          
+          try {
+            const improvementsArray = JSON.parse(improvementsRaw);
+            this.preferences.improvementList = improvementsArray;
+          } catch (error) {
+            this.toast.fire({
+              title: 'Ocorreu um erro ao carregar sua lista de melhorias',
+              icon: 'error'
+            });
+            console.error(error);
+          }
+        },
+        processImprovements() {
+          if (!this.translatedText || this.preferences.improvementList.length === 0) {
+            return;
+          }
+          
+          let improvementsCount = 0;
+          let improvedTranslation = this.translatedText;
+          
+          this.preferences.improvementList.forEach(improv => {
+            const regex = new RegExp(`(?<=\\s|^|["',.!()])${improv.original}(?=\\s|$|["',.!()])`, 'g');
+            const matchs = improvedTranslation.match(regex);
+            if (matchs) improvementsCount += matchs.length;
+            
+            improvedTranslation = improvedTranslation.replace(regex, `${improv.replacement}`);
+          });
+          
+          return {
+            improvedTranslation,
+            improvementsCount
+          };
+        },
+        copyResult() {
+          const copied = this.copyToClipboard(this.translatedText);
+          const toastMsg = copied ? 
+            `Copiado com sucesso!` :
+            `Não foi possível copiar!`;
+          const toastIcon = copied ? 'success' : 'error';
+          
+          if (copied) {
+            this.copied = true;
+          
+            setTimeout(() => {
+              this.copied = false;
+            }, 5000);
+          }
+        
+          this.toast.fire({
+            title: toastMsg,
+            icon: toastIcon,
+            timer: 2000
+          });
+          
+          if (this.preferences.autoClear) {
+            this.originalText = '';
+            this.lastOriginalText = '';
+          }
+        },
+        async improveTranslation() {
+          const { improvedTranslation, improvementsCount } = this.processImprovements();
+          
+          this.translatedText = improvedTranslation;
+          this.usingImproveTranslation = true;
+          
+          if (this.preferences.joinImproveAndCopy) {
+            this.copyToClipboard(this.translatedText);
+            if (this.preferences.autoClear) {
+              this.originalText = '';
+              this.lastOriginalText = '';
+            }
+          }
+          
+          const toastMsg = this.preferences.joinImproveAndCopy ? 
+            `Copiado! ${improvementsCount} melhorias aplicadas!` :
+            `${improvementsCount} melhorias aplicadas`;
+            
+          this.toast.fire({
+            title: toastMsg,
+            icon: 'success',
+            timer: 5000
+          });
+        },
+        undoImprovements() {
+          this.translatedText = this.originalTranslateText;
+          this.usingImproveTranslation = false;
         }
+      },
+      watch: {
+        preferences: {
+          handler(newPrefs, oldPrefs) {
+            const prefsCopy = { ...newPrefs };
+            delete prefsCopy.improvementList;
+            
+            const serializedPrefs = JSON.stringify(prefsCopy);
+            localStorage.setItem('preferences', serializedPrefs);
+            
+            if (this.preferencesLoaded) {
+              this.toast.fire({
+                title: 'Preferências atualizadas!',
+                icon: 'success',
+                timer: 2000
+              });
+            }
+            
+            this.preferencesLoaded = true;
+          },
+          deep: true
+        },
+        'preferences.improvementList': {
+          handler(newList, oldList) {
+            const improvementListString = JSON.stringify(newList);
+            localStorage.setItem('improvements', improvementListString);
+            
+            if (oldList.length > 0) {
+              this.toast.fire({
+                title: 'Lista de melhorias atualizada!',
+                icon: 'success',
+                timer: 2000
+              });
+            }
+          }
+        },
+        apiKeyPage: {
+          handler(newValue, oldValue) {
+            if (newValue === false) {
+              this.fetchPreferences();
+              this.fetchImprovements();
+              localStorage.setItem('apiKey', this.apiKey)
+            }
+          }
+        }
+      },
+      mounted() {
+        tippy('[data-tippy-content]', {
+          arrow: false,
+          placement: 'top'
+        });
+        
+        const apiKey = this.fetchAPIKey();
+
+        setTimeout(() => {
+          if (apiKey) {
+            this.apiKeyPage = false;
+            this.apiKey = apiKey;
+          }
+          
+          this.isCheckingApiKey = false;
+        }, 1000);
       }
-    })
+    });
   </script>
+  <!-- Developed By JWesleyLima 26 Mar 2025 -->
 </body>
 </html>
